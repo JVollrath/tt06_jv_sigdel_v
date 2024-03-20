@@ -32,6 +32,7 @@ reg clk = 1;
 reg rst_n = 1;
 reg [7:0] inp ;
 wire [7:0] out;
+wire [7:0] outx;
 wire [15:0] outs0;
 wire [15:0] outs1;
 wire [15:0] outs2;
@@ -77,6 +78,11 @@ sigdel sigdelX(.clk(clk),
                .rst_n(rst_n),
                .inp(inp),
                .out(out));
+tt_um_jv_sidel sigdelY(.clk(clk),
+                       .rst_n(rst_n),
+                       .ui_in(inp),
+                       .uo_out(outx));
+
 always
  #10 clk = ~clk;  // setup Tclk = 20ns 50 MHz CLK
 
