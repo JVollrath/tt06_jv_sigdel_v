@@ -22,7 +22,7 @@ module tt_um_jv_sigdel (
   assign uio_oe  = 0;
 
 sigdel sigdel1(.clk(clk),
-               .rst_n(rstn),
+               .rst_n(rst_n),
                .inp(ui_in),
                .out(uo_out));
 
