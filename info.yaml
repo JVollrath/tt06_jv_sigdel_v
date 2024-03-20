@@ -15,29 +15,34 @@ project:
   
   # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
-    - "project.v"
+    - "sinc1.v"
+    - "sinc2.v"
+    - "sinc3.v"
+    - "pwm.v"
+    - "clkdiv.v"
+    - "sigdel.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "Input voltage input voltage R1, uo5 R2, C attached"
+  ui[1]: "Sampling clock conf1"
+  ui[2]: "Sampling clock conf2"
+  ui[3]: "OSR conf1"
+  ui[4]: "OSR conf2"
+  ui[5]: "SINC1,2,3 conf1"
+  ui[6]: "SINC1,2,3 conf2"
+  ui[7]: "pwm output enable"
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "ADC 0 LSB"
+  uo[1]: "ADC 1"
+  uo[2]: "ADC 2"
+  uo[3]: "ADC 3 MSB"
+  uo[4]: "replicate ui0"
+  uo[5]: "invert ui0 R2"
+  uo[6]: "pwm upper"
+  uo[7]: "pwm lower"
 
   # Bidirectional pins
   uio[0]: ""
