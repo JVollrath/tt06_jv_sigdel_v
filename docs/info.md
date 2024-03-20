@@ -9,11 +9,19 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+A 1st order passive sigma delta modulator can be realized by attaching R1, R2 and C to a digital input.
+Further information is found here:
+https://personalpages.hs-kempten.de/~vollratj/InEl/SigmaDelta_ADC_real.html
+
+A high level simulator:
+https://personalpages.hs-kempten.de/~vollratj/InEl/SigmaDelta.html
 
 ## How to test
 
-Explain how to use your project
+Add the RC network and apply a DC voltage at the input in0 and out5.
+Select sampling, oversamplingrate and filter in1..6.
+The 4 output lines 0..3 should give a 4-Bit value.
+The out6,7 give a pwm signal changing with the input voltage.
 
 ## External hardware
 
