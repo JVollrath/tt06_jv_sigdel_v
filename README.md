@@ -2,6 +2,8 @@
 
 # Tiny Tapeout Verilog Project Template
 
+# Modified for a 1st order passive sigma delta ADC
+
 - [Read the documentation for project](docs/info.md)
 
 ## What is Tiny Tapeout?
