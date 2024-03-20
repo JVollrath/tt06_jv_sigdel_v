@@ -21,6 +21,7 @@ project:
     - "pwm.v"
     - "clkdiv.v"
     - "sigdel.v"
+    - "tt_um_jv_sigdel.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
