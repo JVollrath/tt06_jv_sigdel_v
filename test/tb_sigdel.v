@@ -78,7 +78,7 @@ sigdel sigdelX(.clk(clk),
                .rst_n(rst_n),
                .inp(inp),
                .out(out));
-tt_um_jv_sidel sigdelY(.clk(clk),
+tt_um_jv_sigdel sigdelY(.clk(clk),
                        .rst_n(rst_n),
                        .ui_in(inp),
                        .uo_out(outx));
