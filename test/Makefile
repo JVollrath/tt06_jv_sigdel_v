@@ -12,6 +12,11 @@ ifneq ($(GATES),yes)
 # RTL simulation:
 SIM_BUILD				= sim_build/rtl
 VERILOG_SOURCES += $(SRC_DIR)/sigdel.v
+VERILOG_SOURCES += $(SRC_DIR)/sinc3.v
+VERILOG_SOURCES += $(SRC_DIR)/sinc2.v
+VERILOG_SOURCES += $(SRC_DIR)/sinc1.v
+VERILOG_SOURCES += $(SRC_DIR)/clkdiv.v
+VERILOG_SOURCES += $(SRC_DIR)/pwm.v
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
 COMPILE_ARGS 		+= -I$(SRC_DIR)
 
