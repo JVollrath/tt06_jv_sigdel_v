@@ -52,7 +52,9 @@ module sigdel(clk,rst_n,inp,out);
         if(!rst_n)
             inx <= 0;
         else
-            inx <= inp[0];
+            if (enx) begin
+              inx <= inp[0];
+           end 
     end
     assign out[4] = inx;
     assign out[5] = !inx;
