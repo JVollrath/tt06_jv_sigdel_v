@@ -16,9 +16,11 @@ To learn more and get started, visit https://tinytapeout.com.
 
 A digital project can use a tile of Tiny Tapeout.
 
-Inputs are clk (fCLK=??), ena, rst_n (reset active low), ui_in[7:0] and uio_on[7:}].
+Inputs are clk (fCLKmax = 50MHz), ena, rst_n (reset active low), ui_in[7:0] and uio_on[7:}].
 
 Outputs are uio_oe{7:0], uio_out[7:0] and uo_out[7:0]
+
+[The Tech specs section gives details](https://www.tinytapeout.com/specs/pcb/)
 
 ## Verilog Projects
 
