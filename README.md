@@ -12,12 +12,18 @@ TinyTapeout is an educational project that aims to make it easier and cheaper th
 
 To learn more and get started, visit https://tinytapeout.com.
 
+![Tiny Tapeout Tile](docs/TinyTapeoutTile.jpg "Tiny Tapeout Tile")
+
+A digital project can use a tile of Tiny Tapeout.
+Inputs are clk (fCLK=??), ena, rst_n (reset active low), ui_in[7:0] and uio_on[7:}].
+Outputs are uio_oe{7:0], uio_out[7:0] and uo_out[7:0]
+
 ## Verilog Projects
 
 1. Add your Verilog files to the `src` folder.
-2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
-3. Edit [docs/info.md](docs/info.md) and add a description of your project.
-4. Optionally, add a testbench to the `test` folder. See [test/README.md](test/README.md) for more information.
+3. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
+4. Edit [docs/info.md](docs/info.md) and add a description of your project.
+5. Optionally, add a testbench to the `test` folder. See [test/README.md](test/README.md) for more information.
 
 The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
 
