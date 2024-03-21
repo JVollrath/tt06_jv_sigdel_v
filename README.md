@@ -28,9 +28,47 @@ All the used verilog files are shown here.
 
 ![Sigma Delta Tree](docs/TTsigdelTree.jpg "Sigma Delta Tree")
 
-3. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
-4. Edit [docs/info.md](docs/info.md) and add a description of your project.
-5. Optionally, add a testbench to the `test` folder. See [test/README.md](test/README.md) for more information.
+2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
+
+Inputs:
+
+  ui[0]: "Input voltage input voltage R1, uo5 R2, C attached"
+
+  ui[1]: "Sampling clock conf1"
+  
+  ui[2]: "Sampling clock conf2"
+  
+  ui[3]: "OSR conf1"
+  
+  ui[4]: "OSR conf2"
+  
+  ui[5]: "SINC1,2,3 conf1"
+  
+  ui[6]: "SINC1,2,3 conf2"
+  
+  ui[7]: "pwm output enable"
+
+
+Outputs:
+
+  uo[0]: "ADC 0 LSB"
+ 
+  uo[1]: "ADC 1"
+  
+  uo[2]: "ADC 2"
+  
+  uo[3]: "ADC 3 MSB"
+  
+  uo[4]: "replicate ui0"
+  
+  uo[5]: "invert ui0 R2"
+  
+  uo[6]: "pwm upper"
+  
+  uo[7]: "pwm lower"
+   
+3. Edit [docs/info.md](docs/info.md) and add a description of your project.
+4. Optionally, add a testbench to the `test` folder. See [test/README.md](test/README.md) for more information.
 
 The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
 
