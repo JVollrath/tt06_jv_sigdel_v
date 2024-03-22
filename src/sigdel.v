@@ -39,6 +39,7 @@ module sigdel(clk,rst_n,inp,out);
     wire [15:0] outb;
     wire [15:0] outx;
     reg [15:0] outy;
+    reg [3:0] outB;
     reg inx;
     wire enx1;
     wire enx2;
@@ -112,8 +113,33 @@ module sigdel(clk,rst_n,inp,out);
   assign outa = inp[5] ? outs1 : outs0;
   assign outb = inp[5] ? outs3 : outs2;
   assign outx = inp[6] ? outb : outa;
-  assign out[3:0] = outx[5:3];
-  
+  //assign out[3:0] = outx[5:3];
+
+ always @(inp[6:1])    
+      case (inp[6:1])	
+	    6'b110011 : outB = outx[5:2];   // 6 Bit
+	    6'b011011 : outB = outx[5:2]; 
+	    6'b010110 : outB = outx[5:2]; 
+	    6'b010001 : outB = outx[5:2]; 
+	    6'b100111 : outB = outx[7:4];   // 8 Bit
+	    6'b100010 : outB = outx[7:4];
+	    6'b011111 : outB = outx[7:4];
+	    6'b011010 : outB = outx[7:4];
+	    6'b010101 : outB = outx[7:4];
+	    6'b010000 : outB = outx[7:4];
+	    6'b011110 : outB = outx[9:6];   // 10 Bit
+	    6'b011001 : outB = outx[9:6];
+	    6'b010100 : outB = outx[9:6];
+	    6'b110111 : outB = outx[11:8];  // 12 bit
+	    6'b110010 : outB = outx[11:8];
+	    6'b101011 : outB = outx[11:8];
+	    6'b100001 : outB = outx[11:8];
+	    6'b011000 : outB = outx[11:8];
+	    6'b011100 : outB = outx[13:10]; // 14 bit
+		default: outB = outx[11:8];     // 12 bit
+	  endcase	
+  assign out[3:0] = outB;
+
   // Buffered output outy
     always @(posedge clk) begin
         if(!rst_n)
