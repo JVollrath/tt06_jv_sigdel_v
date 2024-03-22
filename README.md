@@ -89,6 +89,7 @@ The GitHub action will automatically build the ASIC files using [OpenLane](https
 ## What next?
 
 - [Submit your design to the next shuttle](https://app.tinytapeout.com/).
+- [Do a revision](https://app.tinytapeout.com/projects/436).
 - Edit [this README](README.md) and explain your design, how it works, and how to test it.
 - Share your project on your social network of choice:
   - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout) [@TinyTapeout](https://www.linkedin.com/company/100708654/)
