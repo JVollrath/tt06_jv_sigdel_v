@@ -158,19 +158,21 @@ module sigdel(clk,rst_n,inp,out);
            .out(out[6]));
   
   // PWM out[7]
-  // pwm pwm2(.clk(clk),
-  //         .rst_n(rst_n),
-  //         .width(outy[9:0]),
-  //         .out(out[7]));
-  modNCnt modNCnt1(
-        .clk(clk),
-        .rst_n(rst_n),
-        .en(ent));
+   pwm pwm2(.clk(clk),
+           .rst_n(rst_n),
+           .width(outy[9:0]),
+           .out(out[7]));
+  
+  // UART too much area ?!
+  // modNCnt modNCnt1(
+  //       .clk(clk),
+  //      .rst_n(rst_n),
+  //      .en(ent));
 
-  serTXa serTXAa(.clk(clk), 
-                .rst_n(rst_n), 
-                .enx(ent), 
-                .data(outy[11:0]),
-		 .tx(out[7]));
+  // serTXa serTXAa(.clk(clk), 
+  //              .rst_n(rst_n), 
+  //              .enx(ent), 
+  //              .data(outy[11:0]),
+  //		 .tx(out[7]));
   
 endmodule
