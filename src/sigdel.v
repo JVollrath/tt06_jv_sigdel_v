@@ -47,7 +47,8 @@ module sigdel(clk,rst_n,inp,out);
     wire eny1;
     wire eny2;
     wire eny;
-  
+    wire ent;
+	
   // Buffered input signal inx
     always @(posedge clk) begin
         if(!rst_n)
@@ -157,9 +158,19 @@ module sigdel(clk,rst_n,inp,out);
            .out(out[6]));
   
   // PWM out[7]
-  pwm pwm2(.clk(clk),
-           .rst_n(rst_n),
-           .width(outy[9:0]),
-           .out(out[7]));
+  // pwm pwm2(.clk(clk),
+  //         .rst_n(rst_n),
+  //         .width(outy[9:0]),
+  //         .out(out[7]));
+  modNCnt modNCnt1(
+        .clk(clk),
+        .rst_n(rst_n),
+        .en(ent));
+
+  serTXa serTXAa(.clk(clk), 
+                .rst_n(rst_n), 
+                .enx(ent), 
+                .data(outy[11:0]),
+		 .tx(out[7]));
   
 endmodule
