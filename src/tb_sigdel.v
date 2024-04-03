@@ -35,6 +35,7 @@ wire [7:0] out;
 wire [15:0] outs0;
 wire [15:0] outs1;
 wire [15:0] outs2;
+  wire [7:0] outXa;
 wire [7:0] en;
 wire pwmX;
 integer i;
@@ -76,7 +77,8 @@ reg ncyc = 0;
 sigdel sigdelX(.clk(clk),
                .rst_n(rst_n),
                .inp(inp),
-               .out(out));
+               .out(out),
+               .outXa(outXa));
 always
  #10 clk = ~clk;  // setup Tclk = 20ns 50 MHz CLK
 
