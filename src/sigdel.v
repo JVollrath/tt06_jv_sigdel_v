@@ -24,11 +24,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module sigdel(clk,rst_n,inp,out);
+module sigdel(clk,rst_n,inp,out,outXa);
     input clk;
     input rst_n;
     input [7:0] inp;
     output [7:0] out;
+	output [7:0] outXa;
     
     wire [7:0] en;     // clock divider enable signal
     wire [15:0] outs0; // output avg
@@ -140,6 +141,7 @@ module sigdel(clk,rst_n,inp,out);
 		default: outB = outx[11:8];     // 12 bit
 	  endcase	
   assign out[3:0] = outB;
+	assign outXa = outy[7:0];
 
   // Buffered output outy
     always @(posedge clk) begin
