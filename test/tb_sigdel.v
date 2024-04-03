@@ -33,6 +33,7 @@ reg rst_n = 1;
 reg [7:0] inp ;
 wire [7:0] out;
 wire [7:0] outx;
+wire [7:0] outXa;
 wire [15:0] outs0;
 wire [15:0] outs1;
 wire [15:0] outs2;
@@ -77,7 +78,8 @@ reg ncyc = 0;
 sigdel sigdelX(.clk(clk),
                .rst_n(rst_n),
                .inp(inp),
-               .out(out));
+               .out(out),
+               .outXa(outXa));
 tt_um_jv_sigdel sigdelY(.clk(clk),
                        .rst_n(rst_n),
                        .ui_in(inp),
