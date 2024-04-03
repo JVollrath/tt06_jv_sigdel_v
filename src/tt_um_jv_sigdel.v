@@ -23,7 +23,7 @@ module tt_um_jv_sigdel (
 sigdel sigdel1(.clk(clk),
                .rst_n(rst_n),
                .inp(ui_in),
-               .out(uo_out)
-               .outX(uio_out);
+               .out(uo_out),
+               .outXa(uio_out);
 
 endmodule
