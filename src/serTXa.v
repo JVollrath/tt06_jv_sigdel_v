@@ -33,6 +33,7 @@ module serTXa(clk, rst_n, enx, data,tx);
     wire [9:0] dataW;  // Data word to send 
     reg [7:0] dataXA;  // ASCII value
     reg [4:0] nib;     // 4 Bit numeric
+    reg [11:0] dataI;     // 4 Bit numeric
     wire P;             // parity
     
     // transfer to ASCII
@@ -55,16 +56,21 @@ module serTXa(clk, rst_n, enx, data,tx);
 	    5'b01110 : dataXA = 8'b0100_0101;    // ASC E
 	    5'b01111 : dataXA = 8'b0100_0110;    // ASC F
      	5'b10000 : dataXA = 8'b0111_1000;    // ASC x 0x78 8'b0111_1000
-     	default: dataXA = 8'b0111_1000;      // ASC x
+     	5'b10001 : dataXA = 8'b0000_1101;    // ASC CR 0x0D 8'b0000_1101
+     	5'b10010 : dataXA = 8'b0000_1010;    // ASC LF 0x0A 8'b0000_1010
+     	5'b10011 : dataXA = 8'b0010_0000;    // ASC Space 0x20 8'b0010_0000
+     	default: dataXA = 8'b0010_0000;      // ASC x
 	  endcase	
     // transfer to ASCII
    always @(cntC, data)
-          case (cntC[1:0])	
-	        2'b00 : nib = 5'b10000;   // "x" MSB
-	        2'b01 : nib = {1'b0,data[11:8]};   // MSB
-	        2'b10 : nib = {1'b0,data[7:4]};    // ..
-	        2'b11 : nib = {1'b0,data[3:0]};    // LSB
-     	    default: nib = {1'b0,data[11:8]};     // 12 bit
+          case (cntC[2:0])	
+		    3'b001 : nib = 5'b10000;   // "x"
+	        3'b010 : nib = {1'b0,dataI[11:8]};   // MSB
+	        3'b011 : nib = {1'b0,dataI[7:4]};    // ..
+	        3'b100 : nib = {1'b0,dataI[3:0]};    // LSB
+            3'b101 : nib = 5'b10001;   // CR
+	        3'b110 : nib = 5'b10010;   // LF
+	      default: nib = 5'b10011;     // space
 	      endcase	
                    
      assign dataW = {1'b1,dataXA,1'b0}; // 4'b011
@@ -75,13 +81,16 @@ module serTXa(clk, rst_n, enx, data,tx);
        if(!rst_n) begin
           cntT <= 6'b00_0000;
           cntC <= 3'b000;
-          txI <= 4'b0000;
+          txI <= 1'b1;
        end else if (clk & enx) begin
           txI <= dataW[cntT[3:0]];
           cntT <= cntT + 1;
           if (cntT == 6'b001001) begin
             cntT <= 6'b00_0000;
             cntC <= cntC + 1;
+          end
+          if (cntC == 3'b000 ) begin
+             dataI = data;
           end
        end
     end   
